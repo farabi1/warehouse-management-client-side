@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 function Navbar() {
   return (
     <div>
-        <div className="">
+        <div className="flex items-center">
             {/* left */}
             <div className="">
                 <img src="" alt="Logo" />
@@ -14,7 +14,7 @@ function Navbar() {
 
             {/* right */}
             
-            <div className="">
+            <div className="m-6">
                 <Link to='/'>Home</Link>
                 <Link to='/about'>About</Link>
                 <Link to='/inventry'>Inventry</Link>
