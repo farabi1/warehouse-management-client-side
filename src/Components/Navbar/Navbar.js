@@ -18,6 +18,7 @@ function Navbar() {
                 <Link to='/'>Home</Link>
                 <Link to='/about'>About</Link>
                 <Link to='/inventry'>Inventry</Link>
+                <Link to='/blogs'>Blogs</Link>
                 
             </div>
 
