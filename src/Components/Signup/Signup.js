@@ -2,10 +2,38 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Footer from '../Footer/Footer'
 import Header from '../Header/Header'
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { auth } from '../../Firebase/Firebase.init';
+
+
+const provider = new GoogleAuthProvider();
 
 function Signup() {
-  return (
-    <div>
+
+    const googleAuth = () => {
+        signInWithPopup(auth, provider)
+            .then((result) => {
+                // This gives you a Google Access Token. You can use it to access the Google API.
+                const credential = GoogleAuthProvider.credentialFromResult(result);
+                const token = credential.accessToken;
+                // The signed-in user info.
+                const user = result.user;
+                // ...
+            }).catch((error) => {
+                // Handle Errors here.
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                // The email of the user's account used.
+                const email = error.email;
+                // The AuthCredential type that was used.
+                const credential = GoogleAuthProvider.credentialFromError(error);
+                // ...
+            });
+    };
+
+
+    return (
+        <div>
             <Header></Header>
             <div className="w-full max-w-md m-auto mt-10 bg-white rounded-lg border shadow-lg">
 
@@ -49,9 +77,9 @@ function Signup() {
                             </button>
                         </div>
                     </form>
-                    
+
                     <div className="my-4">
-                        <button className="py-2 px-4  border rounded-md border-emerald-300 bg-emerald-500 text-white hover:bg-sky-600 hover:text-white">
+                        <button className="py-2 px-4  border rounded-md border-emerald-300 bg-emerald-500 text-white hover:bg-sky-600 hover:text-white" onClick={googleAuth}>
 
                             <p className='text-lg font-semibold'>Google Signup</p>
 
@@ -67,7 +95,7 @@ function Signup() {
             </div>
             <Footer></Footer>
         </div>
-  );
+    );
 }
 
 export default Signup
