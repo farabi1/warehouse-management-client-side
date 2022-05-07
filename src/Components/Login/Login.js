@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Footer from '../Footer/Footer'
 import Header from '../Header/Header'
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
@@ -10,12 +10,16 @@ const provider = new GoogleAuthProvider();
 
 function Login() {
 
+    const navigate = useNavigate();
+    
     const googleAuth = () => {
         signInWithPopup(auth, provider)
             .then((result) => {
 
                 const user = result.user;
                 console.log(user);
+                navigate("/");
+
             }).catch((error) => {
 
                 const errorMessage = error.message;
