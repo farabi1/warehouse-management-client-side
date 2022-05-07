@@ -3,21 +3,50 @@ import { Link, useNavigate } from 'react-router-dom'
 import Footer from '../Footer/Footer'
 import Header from '../Header/Header'
 import { createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { auth } from '../../Firebase/Firebase.init';
-import toast from "react-hot-toast";
+
 
 
 const provider = new GoogleAuthProvider();
 
 function Signup() {
 
-    const [email, setEmail] = useState({ value: "", error: "" });
-    const [password, setPassword] = useState({ value: "", error: "" });
-    const [passwordConfirmation, setPasswordConfirmation] = useState({
-        value: "",
-        error: "",
-    });
+    const [confirmError, setConfirmError] = useState('');
 
+    const [userInfo, setUserInfo] = useState({
+        email: '',
+        passwoed: '',
+        confirmpass: ''
+    })
+
+    // Creating user
+    const [
+        createUserWithEmailAndPassword,
+        createUser,
+        creteLoading,
+        createError,
+    ] = useCreateUserWithEmailAndPassword(auth);
+
+    const handleForInput = (event) => {
+
+        userInfo[event.target.name] = event.target.value;
+    }
+
+    const handlesubmit = (event) => {
+        event.preventDefault();
+
+        if (userInfo.password !== userInfo.confirmPass) {
+            setConfirmError('Password not matched');
+            return;
+        } else {
+            setConfirmError("")
+            createUserWithEmailAndPassword(userInfo.email, userInfo.password)
+        }
+
+
+        console.log(userInfo);
+    }
     const navigate = useNavigate();
 
     const googleAuth = () => {
@@ -34,69 +63,9 @@ function Signup() {
             });
     };
 
-    // const handleEmail = (event) => {
-    //     const emailInput = event.target.value;
-    //     if (/\S+@\S+\.\S+/.test(emailInput)) {
-    //         setEmail({ value: emailInput, error: "" });
-    //     } else {
-    //         setEmail({ value: "", error: "Please Provide a valid Email" });
-    //     }
-    // };
-    // const handlePassword = (event) => {
-    //     const passwordInput = event.target.value;
 
-    //     if (passwordInput.length < 7) {
-    //         setPassword({ value: "", error: "Password too short" });
-    //     } else if (!/(?=.*[A-Z])/.test(passwordInput)) {
-    //         setPassword({
-    //             value: "",
-    //             error: "Password must contain a capital letter",
-    //         });
-    //     } else {
-    //         setPassword({ value: passwordInput, error: "" });
-    //     }
-    // };
-    // const handleConfirmPassword = (event) => {
-    //     const confirmationInput = event.target.value;
 
-    //     if (confirmationInput !== password.value) {
-    //         setPasswordConfirmation({ value: "", error: "Password Mismatched" });
-    //     } else {
-    //         setPasswordConfirmation({ value: confirmationInput, error: "" });
-    //     }
-    // };
 
-    // const handleSignup = (event) => {
-    //     event.preventDefault();
-    //     if (email.value === "") {
-    //         setEmail({ value: "", error: "Email is required" });
-    //     }
-    //     if (password.value === "") {
-    //         setPassword({ value: "", error: "Password is required" });
-    //     }
-    //     if (passwordConfirmation.value === "") {
-    //         setPasswordConfirmation({
-    //             value: "",
-    //             error: "Password confirmation is required",
-    //         });
-    //     }
-    //     if (email.value && password.value === passwordConfirmation.value) {
-    //         createUserWithEmailAndPassword(auth, email.value, password.value)
-    //             .then((userCredential) => {
-    //                 const user = userCredential.user;
-    //                 toast.success("Account created", { id: "created" });
-    //                 navigate("/");
-    //             })
-    //             .catch((error) => {
-    //                 const errorMessage = error.message;
-    //                 if (errorMessage.includes("already-in-use")) {
-    //                     toast.error("Email already in use", { id: "error" });
-    //                 } else {
-    //                     toast.error(errorMessage, { id: "error" });
-    //                 }
-    //             });
-    //     }
-    // };
 
     return (
         <div>
@@ -110,118 +79,55 @@ function Signup() {
                         </h1>
                     </div>
 
-                    {/* <form onSubmit={handleSignup}>
-                        <div className='input-field'>
+                    <form onSubmit={handlesubmit} >
+
+                        <div>
                             <label htmlFor='email'>Email</label>
                             <div className='input-wrapper'>
                                 <input
-                                    onBlur={handleEmail}
-                                    type='email'
+                                    onBlur={(event) => handleForInput(event)}
+
+                                    type='text'
                                     name='email'
-                                    id='email'
-                                />
-                            </div>
-
-                        </div>
-                        <div className='input-field'>
-                            <label htmlFor='password'>Password</label>
-                            <div className='input-wrapper'>
-                                <input
-                                    onBlur={handlePassword}
-                                    type='password'
-                                    name='password'
-                                    id='password'
-                                />
-                            </div>
-                         
-                        </div>
-                        <div className='input-field'>
-                            <label htmlFor='confirm-password'>Confirm Password</label>
-                            <div className='input-wrapper'>
-                                <input
-                                    onBlur={handleConfirmPassword}
-                                    type='password'
-                                    name='confirmPassword'
-                                    id='confirm-password'
-                                />
-                            </div>
-                         
-                        </div>
-                        <button type='submit' className='auth-form-submit'>
-                            Sign Up
-                        </button>
-                    </form> */}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    <form >
-
-                        <div className='input-field'>
-                            <label htmlFor='email'>Email</label>
-                            <div className='input-wrapper'>
-                                <input
-                                    
-                                    type='email'
-                                    name='email'
-                                    id='email'
+                                    id='inputemail'
+                                    placeholder='Email'
                                     className="w-full p-2 border-2 rounded-md outline-none text-sm mb-4 mt-2"
                                 />
                             </div>
                         </div>
-                        <div className="">
-                            <label className="text-left">Email :</label>
+                        <div>
+                            <label className="text-left">Password :</label>
                             <input
-                                name='email'
-                                type='email'
-                                id='email'
-                                placeholder='email'
+
+                                onBlur={(event) => handleForInput(event)}
+
+                                name='password'
+                                type='password'
+                                id='inputpassword'
+                                placeholder='Password'
                                 className="w-full p-2 border-2 rounded-md outline-none text-sm mb-4 mt-2"
 
                             />
                         </div>
-                        <div className="">
-                            <label className="text-left">Email :</label>
+                        <div>
+                            <label className="text-left">Confirm Password :</label>
                             <input
-                                name='email'
-                                type='email'
-                                id='email'
-                                placeholder='email'
+                                onBlur={(event) => handleForInput(event)}
+
+                                name='confirmPass'
+                                type='password'
+                                id='password'
+                                placeholder='Confirm Password'
                                 className="w-full p-2 border-2 rounded-md outline-none text-sm mb-4 mt-2"
 
                             />
                         </div>
+                        <h1 className=' text-red-500 text-lg'>{confirmError}</h1>
 
                         <div className="flex items-center mt-3 justify-start">
                             <button type='submit'
                                 className="bg-teal-500 hover:bg-teal-600 py-1 px-2 text-lg text-white rounded"
-                                value="Login"
+
                             >
                                 Sign Up
                             </button>
@@ -249,3 +155,5 @@ function Signup() {
 }
 
 export default Signup
+
+
