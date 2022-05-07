@@ -2,8 +2,26 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Footer from '../Footer/Footer'
 import Header from '../Header/Header'
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { auth } from '../../Firebase/Firebase.init';
+
+
+const provider = new GoogleAuthProvider();
 
 function Login() {
+
+    const googleAuth = () => {
+        signInWithPopup(auth, provider)
+            .then((result) => {
+
+                const user = result.user;
+                console.log(user);
+            }).catch((error) => {
+
+                const errorMessage = error.message;
+                console.log(errorMessage);
+            });
+    };
     return (
         <div>
             <Header></Header>
@@ -42,7 +60,7 @@ function Login() {
                         </div>
                     </form>
                     <div className="my-4">
-                        <button className="py-2 px-4  border rounded-md border-emerald-300 bg-emerald-500 text-white hover:bg-sky-600 hover:text-white">
+                        <button className="py-2 px-4  border rounded-md border-emerald-300 bg-emerald-500 text-white hover:bg-sky-600 hover:text-white" onClick={googleAuth}>
 
                             <p className='text-lg font-semibold'>Google Login</p>
 

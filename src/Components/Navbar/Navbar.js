@@ -1,9 +1,24 @@
-import React from 'react'
+import { onAuthStateChanged } from 'firebase/auth';
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { auth } from '../../Firebase/Firebase.init';
 import './Navbar.css'
 
 
 function Navbar() {
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        console.log(user);
+      } else {
+        // User is signed out
+        // ...
+      }
+    });
+  }, [])
+
+
   return (
     <div>
       <div className="flex items-center justify-between bg-slate-100 shadow-md">
