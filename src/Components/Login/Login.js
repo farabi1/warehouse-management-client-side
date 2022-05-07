@@ -44,7 +44,7 @@ function Login() {
                     <div className="flex items-center mt-5">
                         <button className="justify-center text-teal-500">
 
-                            <Link to="/text">Text</Link>
+                            <Link to="/signup">Sign Up</Link>
 
                         </button>
                     </div>
