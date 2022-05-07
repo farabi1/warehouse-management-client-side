@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import Footer from '../Footer/Footer'
 import Header from '../Header/Header'
-import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { auth } from '../../Firebase/Firebase.init';
+import toast from 'react-hot-toast';
+import { AiOutlineExclamationCircle } from "react-icons/ai";
 
 
 const provider = new GoogleAuthProvider();
@@ -11,7 +13,10 @@ const provider = new GoogleAuthProvider();
 function Login() {
 
     const navigate = useNavigate();
-    
+
+    const [email, setEmail] = useState({ value: "", error: "" });
+    const [password, setPassword] = useState({ value: "", error: "" });
+
     const googleAuth = () => {
         signInWithPopup(auth, provider)
             .then((result) => {
@@ -26,6 +31,52 @@ function Login() {
                 console.log(errorMessage);
             });
     };
+
+    const handleEmail = (event) => {
+        const emailInput = event.target.value;
+
+        if (/\S+@\S+\.\S+/.test(emailInput)) {
+            setEmail({ value: emailInput, error: "" });
+        } else {
+            setEmail({ value: "", error: "Please Provide a valid Email" });
+        }
+    };
+
+    const handlePassword = (event) => {
+        const passwordInput = event.target.value;
+
+        setPassword({ value: passwordInput, error: "" });
+    };
+
+    const handleLogin = (event) => {
+        event.preventDefault();
+
+        if (email.value === "") {
+            setEmail({ value: "", error: "Email is required" });
+        }
+
+        if (password.value === "") {
+            setPassword({ value: "", error: "Password is required" });
+        }
+
+        if (email.value && password.value) {
+            signInWithEmailAndPassword(auth, email.value, password.value)
+                .then((userCredential) => {
+                    const user = userCredential.user;
+                    console.log(user);
+                    navigate("/");
+                })
+                .catch((error) => {
+                    const errorMessage = error.message;
+
+                    if (errorMessage.includes("wrong-password")) {
+                        toast.error("Wrong Password", { id: "error" });
+                    } else {
+                        toast.error(errorMessage, { id: "error" });
+                    }
+                });
+        }
+    };
     return (
         <div>
             <Header></Header>
@@ -37,23 +88,32 @@ function Login() {
                             Login to your account
                         </h1>
                     </div>
-                    <form>
+                    <form onSubmit={handleLogin}>
                         <label className="text-left">Email :</label>
                         <input
-                            name="email"
-                            type="email"
-                            placeholder="Email"
+                            type='text' name='email' onBlur={handleEmail} id='email'
                             className="w-full p-2 border-2 rounded-md outline-none text-sm mb-4 mt-2"
 
                         />
+                        {email.error && (
+                            <p className='error'>
+                                <AiOutlineExclamationCircle /> {email.error}
+                            </p>
+                        )}
                         <label className="">Password :</label>
                         <input
-                            name="password"
-                            type="password"
-                            placeholder="Password"
+                            type='password'
+                            onBlur={handlePassword}
+                            name='password'
+                            id='password'
                             className="w-full p-2 text-primary border-2 rounded-md outline-none text-sm mb-4"
 
                         />
+                        {password.error && (
+                            <p className='error'>
+                                <AiOutlineExclamationCircle /> {password.error}
+                            </p>
+                        )}
                         <div className="flex items-center mt-3 justify-start">
                             <button
                                 className="bg-teal-500 hover:bg-teal-600 py-1 px-2 text-lg text-white rounded"

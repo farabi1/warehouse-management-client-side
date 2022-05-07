@@ -110,7 +110,7 @@ function Signup() {
                         </h1>
                     </div>
 
-                    <form onSubmit={handleSignup}>
+                    {/* <form onSubmit={handleSignup}>
                         <div className='input-field'>
                             <label htmlFor='email'>Email</label>
                             <div className='input-wrapper'>
@@ -150,7 +150,7 @@ function Signup() {
                         <button type='submit' className='auth-form-submit'>
                             Sign Up
                         </button>
-                    </form>
+                    </form> */}
 
 
 
@@ -181,7 +181,7 @@ function Signup() {
 
 
 
-                    {/* <form onSubmit={handleSignup}>
+                    <form onSubmit={handleSignup}>
 
                         <div className='input-field'>
                             <label htmlFor='email'>Email</label>
@@ -191,6 +191,7 @@ function Signup() {
                                     type='email'
                                     name='email'
                                     id='email'
+                                    className="w-full p-2 border-2 rounded-md outline-none text-sm mb-4 mt-2"
                                 />
                             </div>
                         </div>
@@ -225,7 +226,7 @@ function Signup() {
                                 Sign Up
                             </button>
                         </div>
-                    </form> */}
+                    </form>
 
                     <div className="my-4">
                         <button className="py-2 px-4  border rounded-md border-emerald-300 bg-emerald-500 text-white hover:bg-sky-600 hover:text-white" onClick={googleAuth}>
