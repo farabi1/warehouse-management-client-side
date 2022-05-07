@@ -44,7 +44,7 @@ function Login() {
                     <div className="my-4">
                         <button className="py-2 px-4  border rounded-md border-emerald-300 bg-emerald-500 text-white hover:bg-sky-600 hover:text-white">
 
-                            <p className='text-lg font-semibold '>Google Login</p>
+                            <p className='text-lg font-semibold'>Google Login</p>
 
                         </button>
                     </div>

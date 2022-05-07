@@ -45,15 +45,21 @@ function Signup() {
                                 className="bg-teal-500 hover:bg-teal-600 py-1 px-2 text-lg text-white rounded"
                                 value="Login"
                             >
-                                Login
+                                Sign Up
                             </button>
                         </div>
                     </form>
+                    
+                    <div className="my-4">
+                        <button className="py-2 px-4  border rounded-md border-emerald-300 bg-emerald-500 text-white hover:bg-sky-600 hover:text-white">
+
+                            <p className='text-lg font-semibold'>Google Signup</p>
+
+                        </button>
+                    </div>
                     <div className="flex items-center mt-5">
-                        <button className="justify-center text-teal-500">
-
-                            <Link to="/login">Login</Link>
-
+                        <button className="justify-center ">
+                            <p>Already have an account? <Link className='text-teal-500' to="/login">Login Here</Link> </p>
                         </button>
                     </div>
                 </div>
@@ -61,7 +67,7 @@ function Signup() {
             </div>
             <Footer></Footer>
         </div>
-  )
+  );
 }
 
 export default Signup

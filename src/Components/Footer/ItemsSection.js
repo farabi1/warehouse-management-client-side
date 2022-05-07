@@ -17,6 +17,6 @@ const ItemsSection = () => {
             </div>
         </div>
     );
-};
+}
 
 export default ItemsSection;
