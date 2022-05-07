@@ -48,6 +48,13 @@ function Login() {
 
                         </button>
                     </div>
+                    <div className="">
+                        <button className="justify-center py-2 px-4 my-4 border rounded-md border-emerald-300 bg-emerald-500 text-white hover:bg-sky-600 hover:text-white">
+
+                            <p className='text-lg font-semibold '>Google Login</p>
+
+                        </button>
+                    </div>
                 </div>
 
             </div>
