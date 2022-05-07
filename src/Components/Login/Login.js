@@ -41,18 +41,16 @@ function Login() {
                             </button>
                         </div>
                     </form>
-                    <div className="flex items-center mt-5">
-                        <button className="justify-center text-teal-500">
-
-                            <Link to="/signup">Sign Up</Link>
-
-                        </button>
-                    </div>
-                    <div className="">
-                        <button className="justify-center py-2 px-4 my-4 border rounded-md border-emerald-300 bg-emerald-500 text-white hover:bg-sky-600 hover:text-white">
+                    <div className="my-4">
+                        <button className="py-2 px-4  border rounded-md border-emerald-300 bg-emerald-500 text-white hover:bg-sky-600 hover:text-white">
 
                             <p className='text-lg font-semibold '>Google Login</p>
 
+                        </button>
+                    </div>
+                    <div className="flex items-center mt-5">
+                        <button className="justify-center ">
+                            <p>Don't have an account? <Link className='text-teal-500' to="/signup">Sign Up Here</Link> </p>
                         </button>
                     </div>
                 </div>
