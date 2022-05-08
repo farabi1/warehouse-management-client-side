@@ -1,9 +1,9 @@
-import React from 'react'
+import React from 'react';
 import Footer from '../../Components/Footer/Footer'
 import Header from '../../Components/Header/Header'
 
 
-function Home() {
+const Home = () => {
   return (
     <div>
       <Header></Header>
@@ -13,7 +13,7 @@ function Home() {
       <p>This is Home</p>
       <Footer></Footer>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

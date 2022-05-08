@@ -1,17 +1,19 @@
-import React from 'react'
+import React from 'react';
 import { Link } from 'react-router-dom'
 import Footer from '../../Components/Footer/Footer'
 import Header from '../../Components/Header/Header'
 
-function Inventry() {
+
+const Inventry = () => {
   return (
     <div>
-        <Header></Header>
-        <h1>Inventry</h1>
-        <Link to='/manageinventry'>Manage</Link>
-        <Footer></Footer>
-    </div>
-  )
-}
+      <Header></Header>
+      <h1>Inventry</h1>
+      <Link to='/manageinventry'>Manage</Link>
+      <Footer></Footer>
 
-export default Inventry
+    </div>
+  );
+};
+
+export default Inventry;

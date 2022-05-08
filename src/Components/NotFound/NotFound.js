@@ -1,15 +1,15 @@
-import React from 'react'
+import React from 'react';
 import Footer from '../Footer/Footer'
 import Header from '../Header/Header'
 
-function NotFound() {
+const NotFound = () => {
   return (
     <div>
-        <Header></Header>
-        <h1>Page Not Found</h1>
-        <Footer></Footer>
+      <Header></Header>
+      <h1>Page Not Found</h1>
+      <Footer></Footer>
     </div>
-  )
-}
+  );
+};
 
-export default NotFound
+export default NotFound;

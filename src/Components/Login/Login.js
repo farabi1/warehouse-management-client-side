@@ -5,13 +5,13 @@ import Header from '../Header/Header'
 import { GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { auth } from '../../Firebase/Firebase.init';
 import { useAuthState, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import {useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 
 const provider = new GoogleAuthProvider();
 
-function Login() {
 
+const Login = () => {
     const navigate = useNavigate();
 
     const [login, setLogin] = useState(true)
@@ -37,7 +37,7 @@ function Login() {
 
     const navigation = useNavigate();
     const location = useLocation();
-    
+
 
     const from = location.state?.from?.pathname || "/";
 
@@ -65,8 +65,6 @@ function Login() {
                 console.log(errorMessage);
             });
     };
-
-
     return (
         <div>
             <Header></Header>
@@ -123,7 +121,7 @@ function Login() {
             </div>
             <Footer></Footer>
         </div>
-    )
-}
+    );
+};
 
-export default Login
+export default Login;

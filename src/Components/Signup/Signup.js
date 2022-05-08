@@ -10,8 +10,26 @@ import { auth } from '../../Firebase/Firebase.init';
 
 const provider = new GoogleAuthProvider();
 
-function Signup() {
+// function Signup() {
 
+
+
+
+
+
+
+//     return (
+//         <div>
+//            
+//         </div>
+//     );
+// }
+
+// export default Signup
+
+
+
+const Signup = () => {
     const [confirmError, setConfirmError] = useState('');
 
     const [userInfo, setUserInfo] = useState({
@@ -62,11 +80,6 @@ function Signup() {
                 console.log(error);
             });
     };
-
-
-
-
-
     return (
         <div>
             <Header></Header>
@@ -152,8 +165,8 @@ function Signup() {
             <Footer></Footer>
         </div>
     );
-}
+};
 
-export default Signup
+export default Signup;
 
 

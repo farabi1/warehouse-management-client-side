@@ -5,7 +5,7 @@ import { auth } from '../../Firebase/Firebase.init';
 import './Navbar.css'
 
 
-function Navbar() {
+const Navbar = () => {
 
   const [user, setUser] = useState({});
 
@@ -26,9 +26,7 @@ function Navbar() {
       // An error happened.
     });
   }
-
   return (
-
     <div className="flex items-center justify-between bg-slate-100 shadow-md">
 
       <div className="mx-8 m-6">
@@ -49,6 +47,6 @@ function Navbar() {
     </div>
 
   );
-}
+};
 
-export default Navbar
+export default Navbar;
