@@ -1,0 +1,65 @@
+[
+    {
+        "id": "1",
+        "img": "https://img.freepik.com/free-photo/waist-up-portrait-handsome-serious-unshaven-male-keeps-hands-together-dressed-dark-blue-shirt-has-talk-with-interlocutor-stands-against-white-wall-self-confident-man-freelancer_273609-16320.jpg?t=st=1649165997~exp=1649166597~hmac=0100c8e2ea56255f4a08f2272a0be0dd92ffdf1ef673827a118070d2a715c823&w=1060",
+        "name": "Paul",
+        "text": "New red car are best",
+        "rate": 4.8
+    },
+    {
+        "id": "2",
+        "img": "https://img.freepik.com/free-photo/handsome-businessman-suit-glasses-cross-arms-chest-look_176420-21750.jpg?t=st=1649165997~exp=1649166597~hmac=24ee3ef7d71e70a4d984aa2e3a222ffa3412e66e7e092a9fa6aeec057356f5e9&w=1060",
+        "name": "Uday",
+        "text": "Silver sport sedan are excelent",
+        "rate": 4.2
+    },
+    {
+        "id": "3",
+        "img": "https://img.freepik.com/free-photo/bohemian-man-with-his-arms-crossed_1368-3542.jpg?t=st=1649165997~exp=1649166597~hmac=11f9273282a65994af61f4909b9c6cb56f9bfa6c2cce01b92665d377cb1142f7&w=740",
+        "name": "Ryan",
+        "text": "Yellow sport car good to run",
+        "rate": 5
+    },
+    {
+        "id": "4",
+        "img": "https://img.freepik.com/free-photo/portrait-handsome-european-male-student-has-gentle-smile-face-happy-hear-pleasant-news-stands-delighted-wears-round-spectacles-orange-jumper_273609-45004.jpg?t=st=1649165997~exp=1649166597~hmac=08f63e2c76469ebf20de77d12b12d5617e851a03fa3fc3665cd47de4bf80ed0b&w=1060",
+        "name": "Aeron",
+        "text": "Its awesome to have a red mini coupe",
+        "rate": 4
+    },
+    {
+        "id": "5",
+        "img": "https://img.freepik.com/free-photo/surprised-amused-good-looking-man-with-beard-open-mouth-fascinated-raise-eyebrows-wondered-enjoy-playing-amusement-park-pointing-fingers-left-astonished-with-amazing-promo-white-wall_176420-37055.jpg?t=st=1649165997~exp=1649166597~hmac=273a9d7f64d0e53fae5fbb2f15e6e9ba427799aa0273f419cd710aa74230550d&w=1060",
+        "name": "Michel",
+        "text": "A grey metallic jeep is reliable",
+        "rate": 4.1
+    },
+    {
+        "id": "6",
+        "img": "https://img.freepik.com/free-photo/no-problem-concept-bearded-man-makes-okay-gesture-has-everything-control-all-fine-gesture-wears-spectacles-jumper-poses-against-pink-wall-says-i-got-this-guarantees-something_273609-42817.jpg?t=st=1649165997~exp=1649166597~hmac=b06eac3fcecfd67c4d55ca5093df622f89ce24b411fa9663a09efad5ca33a99d&w=1060",
+        "name": "Harry",
+        "text": "Red luxury sedan beautiful",
+        "rate": 4.5
+    },
+    {
+        "id": "7",
+        "img": "https://img.freepik.com/free-photo/young-handsome-man-with-beard-isolated-keeping-arms-crossed-frontal-position_1368-132662.jpg?w=1060",
+        "name": "Christopher",
+        "text": "Amazing to have Luxury sport car with xenon lights glow",
+        "rate": 4.6
+    },
+    {
+        "id": "8",
+        "img": "https://img.freepik.com/free-photo/handsome-young-businessman-shirt-eyeglasses_85574-6228.jpg?w=740",
+        "name": "Tom",
+        "text": "A blue sedan have best royal feelings",
+        "rate": 4.7
+    },
+    {
+        "id": "9",
+        "img": "https://img.freepik.com/free-photo/cheerful-man-pointing-finger-left-advertise-product_176420-18862.jpg?t=st=1649165997~exp=1649166597~hmac=18edc4707a37780348ea94116b5f110453766990e778446dcfec3345293958b9&w=1060",
+        "name": "Alex",
+        "text": "A white modern sport car player car are best",
+        "rate": 4.4
+    }
+]
