@@ -16,7 +16,9 @@ const InventoryItem = (props) => {
                 <h1>{text}</h1>
                 <h1>Rating : {rate}</h1>
             </div>
-            <button className='bg-emerald-500 hover:bg-emerald-600 py-2 px-4 border rounded-md font-semibold text-2xl text-white mx-2 my-4 '>Update</button>
+            <div className="flex items-end justify-center">
+                <button className=' bg-emerald-500 hover:bg-emerald-600 py-2 px-4 border rounded-md font-semibold text-2xl text-white mx-2 my-4 '>Update</button>
+            </div>
 
         </div>
     );
