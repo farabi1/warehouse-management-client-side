@@ -1,8 +1,15 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
-const InventoryItem = (props) => {
 
-    const { name, img, text, rate } = props.inventory;
+const InventoryItem = ({ inventory }) => {
+
+    const { _id, name, img, text, rate } = inventory;
+    const navigate = useNavigate();
+
+    const toInventoryPage = id => {
+        navigate(`/inventory/${id}`);
+    }
 
     return (
         <div className='my-6 bg-emerald-100 shadow-xl border rounded-lg'>
@@ -17,7 +24,7 @@ const InventoryItem = (props) => {
                 <h1>Rating : {rate}</h1>
             </div>
             <div className="flex items-end justify-center">
-                <button className=' bg-emerald-500 hover:bg-emerald-600 py-2 px-4 border rounded-md font-semibold text-2xl text-white mx-2 my-4'>Update</button>
+                <button onClick={() => toInventoryPage(_id)} className='bg-emerald-500 hover:bg-emerald-600 py-2 px-4 border rounded-md font-semibold text-2xl text-white mx-2 my-4' >Update</button>
             </div>
 
         </div>

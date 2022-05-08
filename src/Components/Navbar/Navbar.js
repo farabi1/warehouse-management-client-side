@@ -38,6 +38,11 @@ const Navbar = () => {
         <Link className="mx-3 hover:text-teal-600" to='/about'>About</Link>
         <Link className="mx-3 hover:text-teal-600" to='/inventry'>Inventry</Link>
         <Link className="mx-3 hover:text-teal-600" to='/blogs'>Blogs</Link>
+        {
+          user?.uid ? (<Link className="mx-3 hover:text-teal-600" to='/receivedata'>Add</Link>) :
+            (
+              <button className='mx-3 font-semibold shadow-sm'>Item Submission</button>
+            )}
 
         {
           user?.uid ? (<button onClick={handleLogout} className='font-semibold shadow-sm'>Logout</button>) :
