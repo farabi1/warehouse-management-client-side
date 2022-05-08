@@ -21,7 +21,11 @@ function App() {
             <Inventry></Inventry>
           </RequireAuth>
         }></Route>
-        <Route path='/manageinventry' element={<ManageInventry></ManageInventry>}></Route>
+        <Route path='/manageinventry' element={
+          <RequireAuth>
+            <ManageInventry></ManageInventry>
+          </RequireAuth>
+        }></Route>
         <Route path='/blogs' element={<Blogs></Blogs>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/signup' element={<Signup></Signup>}></Route>

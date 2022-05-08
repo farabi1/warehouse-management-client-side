@@ -10,24 +10,6 @@ import { auth } from '../../Firebase/Firebase.init';
 
 const provider = new GoogleAuthProvider();
 
-// function Signup() {
-
-
-
-
-
-
-
-//     return (
-//         <div>
-//            
-//         </div>
-//     );
-// }
-
-// export default Signup
-
-
 
 const Signup = () => {
     const [confirmError, setConfirmError] = useState('');
@@ -41,10 +23,10 @@ const Signup = () => {
     // Creating user
     const [
         createUserWithEmailAndPassword,
-        createUser,
-        creteLoading,
-        createError,
-    ] = useCreateUserWithEmailAndPassword(auth);
+        User,
+        Loading,
+        Error,
+    ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
     const handleForInput = (event) => {
 
@@ -168,5 +150,6 @@ const Signup = () => {
 };
 
 export default Signup;
+
 
 
