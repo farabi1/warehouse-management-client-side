@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Getting Started with Warehouse App with Tailwind
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was Created with Tailwind [FR WareHouse](https://warehouse-client-side-85d59.web.app/).
 
 ## Available Scripts
 
