@@ -3,10 +3,13 @@ import { Link } from 'react-router-dom';
 
 const InventorySection = () => {
     return (
-        <div>
+        <>
             <h1 className='text-center text-2xl text-orange-900'>Inventory Section</h1>
-            <Link to='/manageinventry'>Manage</Link>
-        </div>
+
+            <div className='bg-gray-100 py-12 shadow-md'>
+                <Link to='/manageinventory'>Manage</Link>
+            </div>
+        </>
     );
 };
 

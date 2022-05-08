@@ -7,8 +7,8 @@ import Signup from './Components/Signup/Signup';
 import About from './Pages/About/About';
 import Blogs from './Pages/Blogs/Blogs';
 import Home from './Pages/Home/Home';
-import Inventry from './Pages/Inventry/Inventry';
-import ManageInventry from './Pages/Manage Inventory/ManageInventry';
+import Inventry from './Pages/Inventory/Inventory';
+import ManageInventry from './Pages/Manage Inventory/ManageInventory';
 
 function App() {
   return (
@@ -21,7 +21,7 @@ function App() {
             <Inventry></Inventry>
           </RequireAuth>
         }></Route>
-        <Route path='/manageinventry' element={
+        <Route path='/manageinventory' element={
           <RequireAuth>
             <ManageInventry></ManageInventry>
           </RequireAuth>

@@ -12,10 +12,7 @@ const Home = () => {
     <div>
       <Header></Header>
       <HeroSection></HeroSection>
-      <p>This is Home</p>
-      <p>This is Home</p>
-      <p>This is Home</p>
-      <p>This is Home</p>
+      <h1 className='text-center text-2xl text-red-500'>This is home</h1>
       <InventorySection></InventorySection>
       <AchievementSection></AchievementSection>
       <FeaturesSection></FeaturesSection>

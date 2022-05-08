@@ -1,17 +1,19 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 import Footer from '../../Components/Footer/Footer'
 import Header from '../../Components/Header/Header'
 
 
-const ManageInventry = () => {
+const Inventory = () => {
   return (
     <div>
       <Header></Header>
-      <h1>Manage your inventry</h1>
-      <button>add new item</button>
+      <h1>Inventry</h1>
+      <Link to='/manageinventory'>Manage</Link>
       <Footer></Footer>
+
     </div>
   );
 };
 
-export default ManageInventry;
+export default Inventory;
