@@ -7,7 +7,7 @@ const InventorySection = () => {
 
     const [inventories, setInventory] = useInventory([]);
     useEffect(() => {
-        fetch('http://localhost:5000/inventory')
+        fetch('https://serene-forest-41494.herokuapp.com/inventory')
             .then(res => res.json())
             .then(data => setInventory(data));
     }, [setInventory])

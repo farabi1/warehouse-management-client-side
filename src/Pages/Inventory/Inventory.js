@@ -10,10 +10,10 @@ const Inventory = () => {
 
   const [inventories, setInventory] = useInventory([]);
   useEffect(() => {
-    fetch('http://localhost:5000/inventory')
-        .then(res => res.json())
-        .then(data => setInventory(data));
-}, [setInventory])
+    fetch('https://serene-forest-41494.herokuapp.com/inventory')
+      .then(res => res.json())
+      .then(data => setInventory(data));
+  }, [setInventory])
   return (
     <div>
       <Header></Header>
@@ -27,7 +27,7 @@ const Inventory = () => {
           <Link className='bg-emerald-500 hover:bg-emerald-600 py-2 px-4 border rounded-md' to='/manageinventory'>Manage</Link>
         </div>
       </div>
-      
+
       <Footer></Footer>
 
     </div>
