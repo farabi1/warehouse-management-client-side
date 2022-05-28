@@ -4,15 +4,14 @@ import FeaturesSection from '../../Components/FeaturesSection/FeaturesSection';
 import Footer from '../../Components/Footer/Footer'
 import Header from '../../Components/Header/Header'
 import InventorySection from '../../Components/InventorySection/InventorySection';
-// import HeroSection from '../../Components/HeroSection/HeroSection';
+import HeroSection from '../../Components/HeroSection/HeroSection';
 
 
 const Home = () => {
   return (
     <div>
       <Header></Header>
-      {/* <HeroSection></HeroSection> */}
-      <h1 className='text-center text-2xl text-red-500'>This is home</h1>
+      <HeroSection></HeroSection>
       <InventorySection></InventorySection>
       <AchievementSection></AchievementSection>
       <FeaturesSection></FeaturesSection>
