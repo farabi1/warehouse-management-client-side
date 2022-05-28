@@ -18,6 +18,8 @@ const AddData = () => {
             .then(res => res.json())
             .then(result => {
                 console.log(result);
+                console.log(register);
+
             })
     };
     return (
