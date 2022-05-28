@@ -115,9 +115,7 @@ const Login = () => {
                             {errors.password?.type === 'minLength' && <span className="label-text-alt text-red-600">{errors.password.message}</span>}
                         </label> <br />
 
-                        {
-                            loginError
-                        }
+                        {loginError}
                         <input className="bg-teal-500 w-full hover:bg-teal-600 py-1 px-2 text-lg text-white rounded" type="submit" value="Login" />
                     </form>
 

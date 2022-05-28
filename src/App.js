@@ -12,6 +12,7 @@ import Inventory from './Pages/Inventory/Inventory';
 import ManageInventory from './Pages/Manage Inventory/ManageInventory';
 import Signup from './Components/Auth/Signup/Signup';
 import ItemDetails from './Components/ItemDetails/ItemDetails';
+import { Toaster } from 'react-hot-toast';
 
 
 function App() {
@@ -42,6 +43,7 @@ function App() {
         <Route path='/signup' element={<Signup></Signup>}></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
+      <Toaster />
     </div>
   );
 }

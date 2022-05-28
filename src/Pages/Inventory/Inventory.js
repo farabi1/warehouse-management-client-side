@@ -18,13 +18,13 @@ const Inventory = () => {
     <div>
       <Header></Header>
       <div className='py-12 shadow-md'>
-        <div className='grid grid-cols-3 gap-6 mx-7'>
+        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mx-7'>
           {
             inventories.map(inventory => <InventoryItem key={inventory._id} inventory={inventory}></InventoryItem>)
           }
         </div>
         <div className=" flex justify-end text-2xl text-white mx-8 ">
-          <Link className='bg-emerald-500 hover:bg-emerald-600 py-2 px-4 border rounded-md' to='/manageinventory'>Manage</Link>
+          <Link className=' bg-indigo-500 hover:bg-indigo-600 py-2 px-4 border rounded-md' to='/manageinventory'>Manage</Link>
         </div>
       </div>
 

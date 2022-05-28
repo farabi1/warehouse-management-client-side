@@ -5,7 +5,7 @@ const useInventory = () => {
     const [inventories, setInventory] = useState([]);
 
     useEffect(() => {
-        fetch('https://serene-forest-41494.herokuapp.com/')
+        fetch('https://serene-forest-41494.herokuapp.com/inventory')
             .then(res => res.json())
             .then(data => setInventory(data));
     }

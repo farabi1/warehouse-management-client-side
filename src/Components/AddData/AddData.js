@@ -2,9 +2,11 @@ import React from 'react';
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
 import { useForm } from "react-hook-form";
+
 const AddData = () => {
 
     const { register, handleSubmit } = useForm();
+
     const onSubmit = data => {
 
         const url = `https://serene-forest-41494.herokuapp.com/inventory`;
@@ -19,9 +21,11 @@ const AddData = () => {
             .then(result => {
                 console.log(result);
                 console.log(register);
-
             })
     };
+
+
+
     return (
         <div >
             <Header></Header>
@@ -32,39 +36,49 @@ const AddData = () => {
                             Add Data To List
                         </h1>
                     </div>
-                    <form>
-                        <label className="text-left">Name :</label>
+                    <form onSubmit={handleSubmit(onSubmit)}>
+                        <label className="text-left">Item's Image Url :</label>
                         <input
 
-                            type='text' name='email' id='inputemail'
+                            type='text' name='email' placeholder='Image Url'
                             className="w-full p-2 border-2 rounded-md outline-none text-sm mb-4 mt-2"
+                            {...register("img")}
 
                         />
-                        <label className="text-left">Text :</label>
+                        <label className="text-left">Item's Name :</label>
                         <input
 
-                            type='text' name='email' id='inputemail'
+                            type='text' name='name' placeholder='Item name'
                             className="w-full p-2 border-2 rounded-md outline-none text-sm mb-4 mt-2"
+                            {...register("name")}
 
                         />
-                        <label className="text-left">Rate :</label>
+                        <label className="text-left">Item's description :</label>
+                        <textarea
+
+                            type='text' name='description' placeholder='Item description'
+                            className="w-full p-2 border-2 rounded-md outline-none text-sm mb-4 mt-2"
+                            {...register("text")}
+
+                        />
+                        <label className="text-left">Item's Rate :</label>
                         <input
 
-                            type='text' name='email' id='inputemail'
+                            type='number' name='rate'
+                            placeholder='Place your Rate'
                             className="w-full p-2 border-2 rounded-md outline-none text-sm mb-4 mt-2"
+                            {...register("rate")}
 
                         />
 
+                        <input
+                            className="bg-teal-500 hover:bg-teal-600 text-lg text-white py-2 px-4 w-full rounded-md mt-5"
+                            value="Set Data"
+                            type='submit'
 
-                        <div className="flex items-center mt-3 justify-start">
-                            <button onSubmit={handleSubmit(onSubmit)}
-                                className="bg-teal-500 hover:bg-teal-600 py-1 px-2 text-lg text-white rounded"
-                                value="Login"
-                                type='submit'
-                            >
-                                Set Data
-                            </button>
-                        </div>
+
+                        />
+
                     </form>
 
                 </div>

@@ -18,13 +18,13 @@ const InventorySection = () => {
 
 
             <div className='bg-gray-100 py-12 shadow-md'>
-                <div className='grid grid-cols-3 gap-6 mx-7'>
+                <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mx-7'>
                     {
                         inventories.slice(0, 6).map(inventory => <InventoryItem key={inventory._id} inventory={inventory}></InventoryItem>)
                     }
                 </div>
-                <div className=" flex justify-end text-2xl text-white mx-8 ">
-                    <Link className='bg-emerald-500 hover:bg-emerald-600 py-2 px-4 border rounded-md' to='/manageinventory'>Manage</Link>
+                <div className=" flex justify-center lg:justify-end text-2xl text-white mx-8 ">
+                    <Link className='bg-teal-400 hover:bg-teal-500 py-2 px-4 border rounded-md w-1/4 text-center' to='/manageinventory'>Manage</Link>
                 </div>
             </div>
         </>

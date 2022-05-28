@@ -39,10 +39,8 @@ const Navbar = () => {
         <Link className="mx-3 hover:text-teal-600" to='/inventory'>Inventory</Link>
         <Link className="mx-3 hover:text-teal-600" to='/blogs'>Blogs</Link>
         {
-          user?.uid ? (<Link className="mx-3 hover:text-teal-600" to='/receivedata'>Item Submission</Link>) :
-            (
-              <Link to='/login' className='mx-3 font-semibold shadow-sm'>Add Item</Link>
-            )}
+          user && <Link className="mx-3 hover:text-teal-600" to='/receivedata'>Item Submission</Link>
+        }
 
         {
           user?.uid ? (<button onClick={handleLogout} className='font-semibold shadow-sm'>Logout</button>) :
