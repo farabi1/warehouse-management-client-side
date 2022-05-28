@@ -1,7 +1,7 @@
 import { onAuthStateChanged, signOut } from 'firebase/auth';
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { auth } from '../../Firebase/Firebase.init';
+import { auth } from '../../Firebase.init';
 import './Navbar.css'
 
 
@@ -39,9 +39,9 @@ const Navbar = () => {
         <Link className="mx-3 hover:text-teal-600" to='/inventry'>Inventry</Link>
         <Link className="mx-3 hover:text-teal-600" to='/blogs'>Blogs</Link>
         {
-          user?.uid ? (<Link className="mx-3 hover:text-teal-600" to='/receivedata'>Add</Link>) :
+          user?.uid ? (<Link className="mx-3 hover:text-teal-600" to='/receivedata'>Add Item</Link>) :
             (
-              <button className='mx-3 font-semibold shadow-sm'>Item Submission</button>
+              <Link to='/login' className='mx-3 font-semibold shadow-sm'>Add Item</Link>
             )}
 
         {

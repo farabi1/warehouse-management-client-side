@@ -1,15 +1,16 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import AddData from './Components/AddData/AddData';
-import Login from './Components/Login/Login';
+import Login from './Components/Auth/Login/Login';
 import NotFound from './Components/NotFound/NotFound';
-import RequireAuth from './Components/RequireAuth/RequireAuth';
-import Signup from './Components/Signup/Signup';
+import RequireAuth from './Components/Auth/RequireAuth/RequireAuth';
+
 import About from './Pages/About/About';
 import Blogs from './Pages/Blogs/Blogs';
 import Home from './Pages/Home/Home';
 import Inventry from './Pages/Inventory/Inventory';
 import ManageInventry from './Pages/Manage Inventory/ManageInventory';
+import Signup from './Components/Auth/Signup/Signup';
 
 function App() {
   return (

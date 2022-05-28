@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import Footer from '../Footer/Footer'
-import Header from '../Header/Header'
+
 import { createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { auth } from '../../Firebase/Firebase.init';
+import { auth } from '../../../Firebase.init';
+import Header from '../../Header/Header';
+import Footer from '../../Footer/Footer';
 
 
 
