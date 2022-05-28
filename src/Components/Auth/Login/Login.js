@@ -2,24 +2,21 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import Footer from '../../Footer/Footer'
 import Header from '../../Header/Header'
-import { GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import { useForm } from 'react-hook-form';
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { auth } from '../../../Firebase.init';
-import { useAuthState, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useNavigate } from 'react-router-dom';
 
 
 const provider = new GoogleAuthProvider();
 
 
 const Login = () => {
-    const navigate = useNavigate();
+    const navigation = useNavigate();
 
-    const [login, setLogin] = useState(true)
+    const { register, formState: { errors }, handleSubmit } = useForm();
 
-    const [userInfo, setUserInfo] = useState({
-        email: '',
-        passwoed: ''
-    })
     const [
         signInWithEmailAndPassword,
         user,
@@ -27,29 +24,19 @@ const Login = () => {
         error,
     ] = useSignInWithEmailAndPassword(auth);
 
-    const [loginUser, loginloading, loginerror] = useAuthState(auth);
 
 
-    const handleForInput = (event) => {
-
-        userInfo[event.target.name] = event.target.value;
-    }
-
-    const navigation = useNavigate();
-    const location = useLocation();
 
 
-    const from = location.state?.from?.pathname || "/";
+    const onSubmit = data => {
 
-    if (loginUser) {
-        navigation(from, { replace: true });
-    }
+        console.log(data)
+        signInWithEmailAndPassword(data.email, data.password);
 
-    const handlelogin = (event) => {
-        event.preventDefault();
+    };
 
-        console.log(userInfo);
-    }
+
+
 
     const googleAuth = () => {
         signInWithPopup(auth, provider)
@@ -57,7 +44,7 @@ const Login = () => {
 
                 const user = result.user;
                 console.log(user);
-                navigate("/");
+                navigation("/");
 
             }).catch((error) => {
 
@@ -76,36 +63,52 @@ const Login = () => {
                             Login to your account
                         </h1>
                     </div>
-                    <form onSubmit={handlelogin}  >
+                    <form onSubmit={handleSubmit(onSubmit)}>
                         <label className="text-left">Email :</label>
                         <input
-                            onBlur={(event) => handleForInput(event)}
-                            type='text' name='email' id='inputemail'
+                            type="email"
+                            placeholder="Type your Email"
                             className="w-full p-2 border-2 rounded-md outline-none text-sm mb-4 mt-2"
+                            {...register("email", {
+                                required: {
+                                    value: true,
+                                    message: 'Email Required'
+                                },
+                                pattern: {
+                                    value: /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/,
+                                    message: 'Please provide valid email'
+                                }
+                            })} />
+                        <label className="">
+                            {errors.email?.type === 'required' && <span className="label-text-alt text-red-600">{errors.email.message}</span>}
+                            {errors.email?.type === 'pattern' && <span className="label-text-alt text-red-600">{errors.email.message}</span>}
+                        </label> <br />
 
-                        />
-
-                        <label className="">Password :</label>
+                        <label className="text-left">Password :</label>
                         <input
-                            onBlur={(event) => handleForInput(event)}
-                            type='password'
-                            name='password'
-                            id='inputpassword'
+                            type="password"
+                            placeholder="Type your Password"
                             className="w-full p-2 text-primary border-2 rounded-md outline-none text-sm mb-4"
+                            {...register("password", {
+                                required: {
+                                    value: true,
+                                    message: 'Password Required'
+                                },
+                                minLength: {
+                                    value: 5,
+                                    message: 'Please provide 5 characters or longer password'
+                                }
+                            })} />
+                        <label className="">
+                            {errors.password?.type === 'required' && <span className="label-text-alt text-red-600">{errors.password.message}</span>}
+                            {errors.password?.type === 'minLength' && <span className="label-text-alt text-red-600">{errors.password.message}</span>}
+                        </label> <br />
 
-                        />
-
-                        <div className="flex items-center mt-3 justify-start">
-                            <button
-                                className="bg-teal-500 hover:bg-teal-600 py-1 px-2 text-lg text-white rounded"
-                                value="Login"
-                            >
-                                Login
-                            </button>
-                        </div>
+                        <input className="bg-teal-500 w-full hover:bg-teal-600 py-1 px-2 text-lg text-white rounded" type="submit" value="Login" />
                     </form>
+
                     <div className="my-4">
-                        <button className="py-2 px-4  border rounded-md border-emerald-300 bg-emerald-500 text-white hover:bg-sky-600 hover:text-white" onClick={googleAuth}>
+                        <button className="py-2 px-4 w-full border rounded-md border-emerald-300 bg-emerald-500 text-white hover:bg-sky-600 hover:text-white" onClick={googleAuth}>
 
                             <p className='text-lg font-semibold'>Google Login</p>
 
@@ -125,3 +128,4 @@ const Login = () => {
 };
 
 export default Login;
+

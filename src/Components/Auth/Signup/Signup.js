@@ -122,7 +122,7 @@ const Signup = () => {
 
                         <div className="flex items-center mt-3 justify-start">
                             <button type='submit'
-                                className="bg-teal-500 hover:bg-teal-600 py-1 px-2 text-lg text-white rounded"
+                                className="bg-teal-500 hover:bg-teal-600 w-full py-1 px-2 text-lg text-white rounded"
 
                             >
                                 Sign Up
@@ -131,7 +131,7 @@ const Signup = () => {
                     </form>
 
                     <div className="my-4">
-                        <button className="py-2 px-4  border rounded-md border-emerald-300 bg-emerald-500 text-white hover:bg-sky-600 hover:text-white" onClick={googleAuth}>
+                        <button className="py-2 px-4 w-full border rounded-md border-emerald-300 bg-emerald-500 text-white hover:bg-sky-600 hover:text-white" onClick={googleAuth}>
 
                             <p className='text-lg font-semibold'>Google Signup</p>
 
