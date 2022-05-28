@@ -19,13 +19,13 @@ const InventoryItem = ({ inventory }) => {
             </div>
 
             <div className="grid grid-cols-1">
-                <div className="mx-4 my-5">
+                <div className="mx-16">
                     <h1 className='text-2xl'>Name: {name}</h1>
                     <h1>{text}</h1>
                     <h1>Rating : {rate}</h1>
                 </div>
                 <div className="flex items-end justify-center">
-                    <button onClick={() => toInventoryPage(_id)} className='bg-indigo-500 hover:bg-indigo-600 w-full py-2 px-4 border rounded-md font-semibold text-2xl text-white mx-2 my-4' >Update</button>
+                    <button onClick={() => toInventoryPage(_id)} className='bg-indigo-500 hover:bg-indigo-600 w-full py-2 px-4 border rounded-md font-semibold text-2xl text-white mx-2 mb-4' >Update</button>
                 </div>
             </div>
 

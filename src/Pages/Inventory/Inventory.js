@@ -24,7 +24,7 @@ const Inventory = () => {
           }
         </div>
         <div className=" flex justify-end text-2xl text-white mx-8 ">
-          <Link className=' bg-indigo-500 hover:bg-indigo-600 py-2 px-4 border rounded-md' to='/manageinventory'>Manage</Link>
+          <Link className=' bg-indigo-500 hover:bg-indigo-600 py-2 px-4 w-1/4 text-center border rounded-md' to='/manageinventory'>Manage</Link>
         </div>
       </div>
 

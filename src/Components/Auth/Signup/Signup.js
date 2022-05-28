@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 
-import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { GoogleAuthProvider, sendEmailVerification, signInWithPopup } from "firebase/auth";
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { auth } from '../../../Firebase.init';
 import Header from '../../Header/Header';
@@ -43,7 +43,10 @@ const Signup = () => {
         } else {
             setConfirmError("")
             createUserWithEmailAndPassword(userInfo.email, userInfo.password);
+            emailVerify();
             navigate("/");
+
+
         }
 
 
@@ -64,6 +67,14 @@ const Signup = () => {
                 console.log(error);
             });
     };
+
+    const emailVerify = () => {
+        sendEmailVerification(auth.currentUser)
+            .then(() => {
+                console.log('Verifiation mail Sent');
+            })
+    }
+
     return (
         <div>
             <Header></Header>
