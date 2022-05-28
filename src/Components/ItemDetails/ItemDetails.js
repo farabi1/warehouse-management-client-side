@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import useInventory from '../../Custom Hook/useInventory';
+import Footer from '../Footer/Footer';
+import Header from '../Header/Header';
 
 const ItemDetails = () => {
     const { inventoryid } = useParams();
@@ -17,7 +19,11 @@ const ItemDetails = () => {
 
     return (
         <div>
+            <Header></Header>
+
             <h1>{inventories.name}</h1>
+
+            <Footer></Footer>
         </div>
     );
 };

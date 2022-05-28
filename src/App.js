@@ -8,9 +8,11 @@ import RequireAuth from './Components/Auth/RequireAuth/RequireAuth';
 import About from './Pages/About/About';
 import Blogs from './Pages/Blogs/Blogs';
 import Home from './Pages/Home/Home';
-import Inventry from './Pages/Inventory/Inventory';
-import ManageInventry from './Pages/Manage Inventory/ManageInventory';
+import Inventory from './Pages/Inventory/Inventory';
+import ManageInventory from './Pages/Manage Inventory/ManageInventory';
 import Signup from './Components/Auth/Signup/Signup';
+import ItemDetails from './Components/ItemDetails/ItemDetails';
+
 
 function App() {
   return (
@@ -18,14 +20,16 @@ function App() {
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/about' element={<About></About>}></Route>
-        <Route path='/inventry' element={
+        <Route path='/inventory/:inventoryid' element={<ItemDetails></ItemDetails>}></Route>
+        <Route path='/inventory' element={
           <RequireAuth>
-            <Inventry></Inventry>
+            <Inventory></Inventory>
           </RequireAuth>
         }></Route>
+
         <Route path='/manageinventory' element={
           <RequireAuth>
-            <ManageInventry></ManageInventry>
+            <ManageInventory></ManageInventory>
           </RequireAuth>
         }></Route>
         <Route path='/receivedata' element={
