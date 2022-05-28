@@ -7,6 +7,7 @@ import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { auth } from '../../../Firebase.init';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
+import Loading from '../../Loading/Loading';
 
 
 const provider = new GoogleAuthProvider();
@@ -23,6 +24,16 @@ const Login = () => {
         loading,
         error,
     ] = useSignInWithEmailAndPassword(auth);
+
+
+    let loginError;
+
+    if (loading) {
+        return <Loading></Loading>
+    }
+    if (error) {
+        loginError = <h3 className=' text-red-600'>{error?.message}</h3>
+    }
 
 
 
@@ -104,6 +115,9 @@ const Login = () => {
                             {errors.password?.type === 'minLength' && <span className="label-text-alt text-red-600">{errors.password.message}</span>}
                         </label> <br />
 
+                        {
+                            loginError
+                        }
                         <input className="bg-teal-500 w-full hover:bg-teal-600 py-1 px-2 text-lg text-white rounded" type="submit" value="Login" />
                     </form>
 
