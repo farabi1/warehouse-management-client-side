@@ -42,7 +42,8 @@ const Signup = () => {
             return;
         } else {
             setConfirmError("")
-            createUserWithEmailAndPassword(userInfo.email, userInfo.password)
+            createUserWithEmailAndPassword(userInfo.email, userInfo.password);
+            navigate("/");
         }
 
 

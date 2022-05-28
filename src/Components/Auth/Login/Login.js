@@ -14,7 +14,7 @@ const provider = new GoogleAuthProvider();
 
 
 const Login = () => {
-    const navigation = useNavigate();
+    const navigate = useNavigate();
 
     const { register, formState: { errors }, handleSubmit } = useForm();
 
@@ -40,9 +40,9 @@ const Login = () => {
 
 
     const onSubmit = data => {
-
-        console.log(data)
+        console.log(user);
         signInWithEmailAndPassword(data.email, data.password);
+        navigate("/");
 
     };
 
@@ -55,7 +55,7 @@ const Login = () => {
 
                 const user = result.user;
                 console.log(user);
-                navigation("/");
+                navigate("/");
 
             }).catch((error) => {
 
