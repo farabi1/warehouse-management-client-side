@@ -2,6 +2,7 @@ import React from 'react';
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
 import { useForm } from "react-hook-form";
+import toast from 'react-hot-toast';
 
 const AddData = () => {
 
@@ -21,6 +22,7 @@ const AddData = () => {
             .then(result => {
                 console.log(result);
                 console.log(register);
+                toast.success('This Item is Added')
             })
     };
 
