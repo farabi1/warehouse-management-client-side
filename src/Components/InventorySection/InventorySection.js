@@ -14,7 +14,7 @@ const InventorySection = () => {
 
     return (
         <>
-            <h1 className='text-center text-2xl text-orange-900'>Inventory Section</h1>
+            <h1 className='text-center text-4xl text-orange-900 font-semibold my-8'>Inventory Section</h1>
 
 
             <div className='bg-gray-100 py-12 shadow-md'>
