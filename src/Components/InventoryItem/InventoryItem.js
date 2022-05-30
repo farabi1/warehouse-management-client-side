@@ -21,7 +21,7 @@ const InventoryItem = ({ inventory }) => {
             <div className="grid grid-cols-1">
                 <div className="mx-16">
                     <h1 className='text-2xl'>Name: {name}</h1>
-                    <h1>{text}</h1>
+                    <h1> Description : {text}</h1>
                     <h1>Rating : {rate}</h1>
                 </div>
                 <div className="flex items-end justify-center">

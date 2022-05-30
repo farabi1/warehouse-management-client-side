@@ -40,11 +40,11 @@ const ItemDetails = () => {
                         <div className="">
                             <div className="mx-4 my-5">
                                 <h1 className='text-2xl'>Name: {inventories.name}</h1>
-                                <h1>{inventories.text}</h1>
+                                <h1>Description : {inventories.text}</h1>
                                 <h1>Rating : {inventories.rate}</h1>
                             </div>
                             <div className="flex justify-start items-end">
-                                <button onClick={() => updateConfirm()} className='bg-indigo-500 hover:bg-indigo-600 w-full py-2 px-4 border rounded-md font-semibold text-2xl text-white mx-2 my-4' >Update</button>
+                                <button onClick={() => updateConfirm()} className='bg-indigo-500 hover:bg-indigo-600 w-full py-2 px-4 border rounded-md font-semibold text-2xl text-white mx-2 my-4' >Delivered</button>
                             </div>
                         </div>
                     </div>
