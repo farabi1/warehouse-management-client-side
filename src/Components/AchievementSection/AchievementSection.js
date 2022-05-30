@@ -3,7 +3,7 @@ import React from 'react';
 const AchievementSection = () => {
     return (
         <>
-            <h1 className='text-center text-4xl text-orange-900 font-semibold my-8'>AchievementSection</h1>
+            <h1 className=''>AchievementSection</h1>
             <div className='grid grid-cols-2 gap-5 my-10 mx-auto bg-gray-100 py-12 shadow-md'>
                 <div className='flex justify-center text-center text-2xl text-orange-900'>
 
